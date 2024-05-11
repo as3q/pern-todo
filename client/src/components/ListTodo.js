@@ -3,7 +3,6 @@ import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
-  const [openEdit, setOpenEdit] = useState([false, ""]);
 
   const getTodos = async () => {
     try {
@@ -45,15 +44,7 @@ const ListTodos = () => {
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
               <td>
-                <button
-                  type="button"
-                  className="btn btn-light"
-                  onClick={() => {
-                    setOpenEdit([true, todo]);
-                  }}
-                >
-                  Edit
-                </button>
+                <EditTodo todo={todo} />
               </td>
               <td>
                 <button
@@ -68,7 +59,6 @@ const ListTodos = () => {
           ))}
         </tbody>
       </table>
-      {openEdit[0] && <EditTodo todo={openEdit[1]} closeEdit={setOpenEdit} />}
     </Fragment>
   );
 };
