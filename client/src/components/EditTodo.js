@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./EditTodo.css";
 
 const EditTodo = ({ todo }) => {
@@ -24,39 +24,39 @@ const EditTodo = ({ todo }) => {
   };
 
   return (
-    <>
+    <Fragment>
       <button
         type="button"
-        class="btn btn-light"
+        className="btn btn-light"
         data-toggle="modal"
         data-target={`#id${todo.todo_id}`}
       >
         Edit
       </button>
       <div
-        class="modal fade"
+        className="modal fade"
         id={`id${todo.todo_id}`}
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Edit Todo
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <input
                 required
                 type="text"
@@ -65,17 +65,17 @@ const EditTodo = ({ todo }) => {
                 onChange={(evnt) => setdescription(evnt.target.value)}
               />
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                class="btn btn-success"
+                className="btn btn-success"
                 onClick={onClickConfirmEdit}
               >
                 Save
@@ -84,7 +84,7 @@ const EditTodo = ({ todo }) => {
           </div>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };
 
